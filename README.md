@@ -7,7 +7,7 @@ Personal Portfolio
 ## Authors
 
 - [Pruiz](https://www.github.com/pruiz05)
-Especial thanks to [midudev](https://github.com/midudev)
+- Especial thanks to [midudev](https://github.com/midudev)
 
 
 ## Screenshots
