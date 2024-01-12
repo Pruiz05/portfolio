@@ -1,0 +1,34 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+
+const EXPERIENCE = [
+  {
+    date: "January 2023 - Present",
+    title: "Backend Developer - Concentra",
+    description: "I work in an agile development team using the Scrum methodology. I am a member of the backend team, but I also occasionally update features on the frontend. In our approach to backend project development, we adhere to the principles of Clean Code and utilize .Net. Additionally, we apply Domain-Driven Design principles, implementing a pattern called CQRS.",
+    latest: true,
+    link: "",
+  },
+  {
+    date: "December 2020 - January 2023",
+    title: "Fullstack Developer - Vegamovil",
+    description: "I started my work as a member of the Frontend team, where I used React (with TypeScript) and AntDesign. I also participated in the analysis and requirements gathering process to create the company's sales module. After a few months, I took on the role of Backend using Node.js (with Express.js as the framework and TypeScript), TypeORM, and Oracle. Initially, I developed RESTful API services, but later the decision was made to use GraphQL services, which gave me the opportunity to work with this relatively new technology within the company.",
+    latest: false,
+  },
+  {
+    date: "March 2016 - December 2020",
+    title: "Fullstack Developer - UCATECI",
+    description: "During this period, I performed various functions that included analysis, design, development, testing, implementation, and updating of applications within the company. As a developer, I took on multiple roles. I worked with a variety of technologies such as .Net Core, C#, ASP, MVC 5, Entity Framework, WinForms, SQL, Oracle, Oracle Form, Azure DevOps, GitHub, JavaScript, JQuery, Bootstrap, CSS, HTML, API development, SOAP service maintenance, creation of structured procedures, and database-level functions. I collaborated both in development teams and on individual projects. I also had the opportunity to lead the development team for several months.",
+    latest: false,
+  },
+];
+
+---
+
+<ol class="relative border-s border-gray-200 ml-3">
+  {EXPERIENCE.map((exp) => (
+    <li  class="mb-10 ms-6">
+      <ExperienceItem  {...exp}/>
+    </li>
+    ))}
+</ol>

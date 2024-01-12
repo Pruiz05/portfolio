@@ -6,22 +6,28 @@ import LinkedInIcon from "../components/icons/LinkedIn.astro";
 import GithubIcon from "../components/icons/Github.astro";
 import MailIcon from "../components/icons/Mail.astro";
 import Pill from "../components/Pill.astro";
+import Experience from "../components/Experience.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import BriefcaseIcon from "../components/icons/Briefcase.astro";
 ---
 
 <Layout title="Pruiz portfolio - Fullstack Developer" description="Connect with me to collaborate on exciting projects. Let's discuss your next idea!">
-  <main>
-    <section class="w-full lg:w-[740px] mx-auto py-44">
-      <h1 class="text-white text-5xl font-bold flex gap-x-4 pb-4 flex-row">
+  <main class="px-4">
+    <SectionContainer class="py-44 pb-20">
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10">
         Hey, I'm Pedro Luis
         <a href="https://www.linkedin.com/in/pedro-luis-ruiz-diaz-7024b9a0" target="_blank" rel="noopener"  class="flex justify-center items-center">
           <Badge>Open to work</Badge>
         </a>
       </h1>
 
-      <h2 class="text-2xl text-wrap">
+      <h2
+      class="text-xl lg:text-2xl text-balance max-w-[700px]">
         <span class="text-pink-500"> +7 years of experience.</span> A passionate
-        software engineer and FullStack developer. Specialized in creating applications
-        that drive innovation and improve user experience
+        software engineer and FullStack developer. I am proactive and
+        always eager to work with new technologies, taking on new challenges and giving my best in every
+        project. I possess strong teamwork skills and effective communication abilities, allowing me to
+        collaborate efficiently with my colleagues.
       </h2>
 
       <nav class="flex gap-4 mt-8 flex-wrap">
@@ -37,6 +43,15 @@ import Pill from "../components/Pill.astro";
           <MailIcon class="size-4 md:size-6" /> pruiz.rd@gmail.com
         </Pill>
       </nav>
-    </section>
+    </SectionContainer>
+
+    <SectionContainer id="experience">
+      <h2
+        class="text-3xl font-semibold mb-6 flex gap-x-3 items-center"
+      >
+        <BriefcaseIcon class="size-8" />
+        Work Experience</h2>
+      <Experience />
+    </SectionContainer>
   </main>
 </Layout>
