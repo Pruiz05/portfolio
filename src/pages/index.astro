@@ -3,13 +3,14 @@ import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import Badge from "../components/Badge.astro";
 import LinkedInIcon from "../components/icons/LinkedIn.astro";
-import GithubIcon from "../components/icons/Github.astro";
+import GithubIcon from "../components/icons/GitHub.astro";
 import CodeIcon from "../components/icons/Code.astro";
 import MailIcon from "../components/icons/Mail.astro";
 import Pill from "../components/Pill.astro";
 import Experience from "../components/Experience.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import BriefcaseIcon from "../components/icons/Briefcase.astro";
+import Projects from "../components/Projects.astro";
 ---
 
 <Layout
@@ -17,9 +18,9 @@ import BriefcaseIcon from "../components/icons/Briefcase.astro";
   description="Connect with me to collaborate on exciting projects. Let's discuss your next idea!"
 >
   <main class="px-4">
-    <SectionContainer class="py-44 pb-24">
+    <SectionContainer class="py-44 pb-32">
       <h1
-        class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
+        class="text-gray-900 dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
       >
         Hey, I'm Pedro Luis
         <a
@@ -34,29 +35,27 @@ import BriefcaseIcon from "../components/icons/Briefcase.astro";
 
       <h2 class="text-xl lg:text-2xl text-wrap max-w-[700px]">
         <span class="text-pink-500"> +7 years of experience.</span> A passionate
-        software engineer and FullStack developer. I am proactive and always eager
-        to work with new technologies, taking on new challenges and giving my best
-        in every project. I possess strong teamwork skills and effective communication
-        abilities, allowing me to collaborate efficiently with my colleagues.
+        software engineer and FullStack developer from Dominican Republic.
       </h2>
 
       <nav class="flex gap-4 mt-8 flex-wrap">
         <Pill href="https://www.linkedin.com/in/pedro-luis-ruiz-diaz-7024b9a0">
-          <LinkedInIcon class="size-6 md:size-6" /> LinkedIn
+          <LinkedInIcon class="size-4 md:size-6" /> LinkedIn
         </Pill>
 
         <Pill href="https://github.com/Pruiz05">
-          <GithubIcon class="size-6 md:size-6" /> Github
+          <GithubIcon class="size-4 md:size-6" /> Github
         </Pill>
 
         <Pill href="">
-          <MailIcon class="size-6 md:size-6" /> pruiz.rd@gmail.com
+          <MailIcon class="size-4 md:size-6" /> pruiz.rd@gmail.com
         </Pill>
       </nav>
     </SectionContainer>
 
     <SectionContainer id="experience">
-      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+      <h2   class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black/80 dark:text-white/80"
+      >
         <BriefcaseIcon class="size-8" />
         Work Experience
       </h2>
@@ -64,10 +63,13 @@ import BriefcaseIcon from "../components/icons/Briefcase.astro";
     </SectionContainer>
 
     <SectionContainer id="projects">
-      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
-        <CodeIcon class="size-8" />
-        Projects
+      <h2
+        class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black/80 dark:text-white/80"
+      >
+        <CodeIcon class="size-7" />
+        Proyectos
       </h2>
+      <Projects />
     </SectionContainer>
 
     <SectionContainer id="stack">
