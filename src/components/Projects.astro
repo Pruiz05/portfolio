@@ -43,7 +43,7 @@ const PROJECTS = [
       "Description 1",
     link: "",
     github: "",
-    image: "https://placehold.co/600x400",
+    image: "https://placehold.co/1000x400",
     tags: [TAGS.NEXT, TAGS.MUI],
   },
   {
@@ -51,13 +51,13 @@ const PROJECTS = [
     description:
       "Description 2",
     link: "",
-    image: "https://placehold.co/600x400",
+    image: "https://placehold.co/1000x400",
     tags: [TAGS.VUE, TAGS.BOOSTRAP],
   },
 ]
 ---
 
-<section class="flex flex-col gap-y-16">
+<div class="flex flex-col gap-y-16">
     {
       PROJECTS.map(({ image, title, description, tags, link, github }) => (
         <article>
@@ -120,4 +120,4 @@ const PROJECTS = [
         </article>
       ))
     }
-  </section>
+  </div>
