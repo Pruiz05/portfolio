@@ -1,3 +1,11 @@
-<span class='inline-flex h-full animate-background-shine cursor-pointer items-center justify-center rounded-full border border-slate-800 bg-[linear-gradient(110deg,#000,45%,#4D4B4B,55%,#000)] bg-[length:250%_100%] px-3 py-1 text-sm font-medium text-slate-300 backdrop-blur-3xl'>
-   <slot/>
+<span
+  class="m-1 ms-0 relative py-2 px-2 inline-flex items-center gap-1 text-xs font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 p-[1px]"
+>
+  <slot />
+  <span class="flex absolute top-0 end-0 h-3 w-3 -mt-1.5 -me-1.5">
+    <span
+      class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 dark:bg-green-600"
+    ></span>
+    <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
   </span>
+</span>
