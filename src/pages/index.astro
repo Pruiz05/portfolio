@@ -12,7 +12,7 @@ import SectionContainer from "../components/SectionContainer.astro";
 import BriefcaseIcon from "../components/icons/Briefcase.astro";
 import Projects from "../components/Projects.astro";
 
-import { FeatureMarquee } from '../components/FeatureMarquee'
+import { FeatureMarquee } from "../components/FeatureMarquee";
 ---
 
 <Layout
@@ -56,7 +56,8 @@ import { FeatureMarquee } from '../components/FeatureMarquee'
     </SectionContainer>
 
     <SectionContainer id="experience">
-      <h2   class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black/80 dark:text-white/80"
+      <h2
+        class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black/80 dark:text-white/80"
       >
         <BriefcaseIcon class="size-8" />
         Work Experience
@@ -80,11 +81,20 @@ import { FeatureMarquee } from '../components/FeatureMarquee'
         Stacks
       </h2>
 
-      <div
-      class="flex flex-col gap-y-16"
-      data-feat-marquee>
-      <FeatureMarquee client:only />
-    </div>
+      <div class="flex flex-col gap-y-16" data-feat-marquee>
+        <FeatureMarquee client:only />
+      </div>
+    </SectionContainer>
+
+    <SectionContainer id="contact">
+      <h2
+        class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black/80 dark:text-white/80"
+      >
+        <CodeIcon class="size-8" />
+        Contact
+      </h2>
+
+      <p>contact here</p>
     </SectionContainer>
   </main>
 </Layout>
