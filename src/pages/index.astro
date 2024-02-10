@@ -8,6 +8,7 @@ import CodeIcon from "../components/icons/Code.astro";
 import MailIcon from "../components/icons/Mail.astro";
 import Pill from "../components/Pill.astro";
 import Experience from "../components/Experience.astro";
+import Stack from "../components/Stack.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import BriefcaseIcon from "../components/icons/Briefcase.astro";
 import Projects from "../components/Projects.astro";
@@ -20,7 +21,7 @@ import { FeatureMarquee } from "../components/FeatureMarquee";
   description="Connect with me to collaborate on exciting projects. Let's discuss your next idea!"
 >
   <main class="px-4">
-    <SectionContainer class="py-44 pb-32">
+    <SectionContainer class="py-44 pb-40">
       <h1
         class="text-gray-900 dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
       >
@@ -35,7 +36,7 @@ import { FeatureMarquee } from "../components/FeatureMarquee";
         </a>
       </h1>
 
-      <h2 class="text-xl lg:text-2xl text-wrap max-w-[700px]">
+      <h2 class="text-xl lg:text-2xl text-wrap max-w-[800px]">
         <span class="text-pink-500"> +7 years of experience.</span> A passionate
         software engineer and FullStack developer from Dominican Republic.
       </h2>
@@ -80,10 +81,11 @@ import { FeatureMarquee } from "../components/FeatureMarquee";
         <CodeIcon class="size-8" />
         Stacks
       </h2>
+        <Stack />
 
-      <div class="flex flex-col gap-y-16" data-feat-marquee>
+      <!-- <div class="flex flex-col gap-y-16" data-feat-marquee>
         <FeatureMarquee client:only />
-      </div>
+      </div> -->
     </SectionContainer>
 
     <SectionContainer id="contact">
