@@ -1,34 +1,98 @@
 ---
-import ExperienceItem from "./ExperienceItem.astro";
+import CompanyIcon from "./icons/Company.astro";
 
 const EXPERIENCE = [
   {
-    date: "January 2023 - Present",
-    title: "Backend Developer - Concentra",
+    company: "Concentra / Innovix",
+    position: "Backend Developer",
+    period: "January 2023 - Present",
     description: "I work in an agile development team using the Scrum methodology. I am a member of the backend team, but I also occasionally update features on the frontend. In our approach to backend project development, we adhere to the principles of Clean Code and utilize .Net. Additionally, we apply Domain-Driven Design principles, implementing a pattern called CQRS.",
+    technologies: [".Net", "C#", "Ms Sql", "Nest JS", "PostgreSQL", "Docker"],
     latest: true,
-    link: "",
   },
   {
-    date: "December 2020 - January 2023",
-    title: "Fullstack Developer - Vegamovil",
-    description: "I started my work as a member of the Frontend team, where I used React (with TypeScript) and AntDesign. I also participated in the analysis and requirements gathering process to create the company's sales module. After a few months, I took on the role of Backend using Node.js (with Express.js as the framework and TypeScript), TypeORM, and Oracle. Initially, I developed RESTful API services, but later the decision was made to use GraphQL services, which gave me the opportunity to work with this relatively new technology within the company.",
+    company: "Vegamovil",
+    position: "Fullstack Developer",
+    period: "December 2020 - January 2023",
+    description: "I started my work as a member of the Frontend team, where I used React (with TypeScript) and AntDesign. I also participated in the analysis and requirements gathering process to create the company's sales module. After a few months, I took on the role of Backend using Node.js (with Express.js as the framework and TypeScript), TypeORM, and Oracle.",
+    technologies: ["React", "TypeScript", "Node.js", "Express.js", "GraphQL", "Oracle"],
     latest: false,
   },
   {
-    date: "March 2016 - December 2020",
-    title: "Fullstack Developer - UCATECI",
+    company: "UCATECI",
+    position: "Fullstack Developer",
+    period: "March 2016 - December 2020",
     description: "During this period, I performed various functions that included analysis, design, development, testing, implementation, and updating of applications within the company. As a developer, I took on multiple roles. I worked with a variety of technologies such as .Net Core, C#, ASP, MVC 5, Entity Framework, WinForms, SQL, Oracle, Oracle Form, Azure DevOps, GitHub, JavaScript, JQuery, Bootstrap, CSS, HTML, API development, SOAP service maintenance, creation of structured procedures, and database-level functions.",
+    technologies: [".Net Core", "C#", "ASP", "MVC 5", "Entity Framework", "SQL", "Oracle", "JavaScript", "Bootstrap"],
     latest: false,
   },
 ];
-
 ---
 
-<ol class="relative border-s border-slate-500 ml-3">
-  {EXPERIENCE.map((exp) => (
-    <li  class="mb-10 ms-6">
-      <ExperienceItem  {...exp}/>
-    </li>
-    ))}
-</ol>
+<!-- <section class="py-16"> -->
+  <div class="max-w-4xl mx-auto px-4">
+    <!-- Experience Tag -->
+    <div class="flex justify-center mb-4">
+      <span class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 text-sm font-medium px-3 py-1 rounded-full border border-gray-200 dark:border-gray-700">
+        Experience
+      </span>
+    </div>
+
+    <!-- Main Title -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+        Professional Journey
+      </h2>
+      <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        A timeline of my professional growth and key achievements
+      </p>
+    </div>
+
+    <!-- Flowbite Timeline -->
+    <ol class="relative border-s border-gray-200 dark:border-gray-700 ml-1">
+      {EXPERIENCE.map((exp, index) => (
+        <li class="mb-10 ms-6">
+          <div class="absolute w-4 h-4 bg-gray-200 dark:bg-gray-700 rounded-full mt-2 -start-2 border-2 border-white dark:border-gray-900"></div>
+          
+          <!-- Company Header -->
+          <div class="flex items-center gap-3 mb-2">
+            <div class="w-5 h-5 text-gray-600 dark:text-gray-400">
+              <CompanyIcon/>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white">{exp.company}</h3>
+            {exp.latest && (
+              <span class="bg-lime-100 dark:bg-lime-900/30 text-lime-800 dark:text-lime-300 text-xs font-medium px-2.5 py-0.5 rounded-full border border-lime-200 dark:border-lime-700">
+                Now
+              </span>
+            )}
+          </div>
+
+          <!-- Position and Period -->
+          <div class="flex items-center gap-3 mb-3">
+            <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-200">{exp.position}</h4>
+            <div class="flex items-center gap-2 text-gray-500 dark:text-gray-400">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+              </svg>
+              <span class="text-sm">{exp.period}</span>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
+            {exp.description}
+          </p>
+
+          <!-- Technology Tags -->
+          <div class="flex flex-wrap gap-2">
+            {exp.technologies.map((tech) => (
+              <span class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm px-3 py-1 rounded-full border border-gray-200 dark:border-gray-700">
+                {tech}
+              </span>
+            ))}
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+<!-- </section> -->
