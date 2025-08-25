@@ -5,10 +5,14 @@
 ## ✨ Features
 
 - **Modern Design**: Clean and responsive layout built with Astro and TailwindCSS
-- **Dark/Light Mode**: Automatic theme switching based on user preference (Coming soon...)
 - **Project Showcase**: Featured work with detailed descriptions and technology stacks
 - **Responsive**: Optimized for all devices and screen sizes
 - **Performance**: Fast loading with Astro's static site generation
+
+### 🔜 Soon
+
+- **Dark/Light Mode**: Automatic theme switching based on user preference.
+- **Multi Languahe**: English & Spanish
 
 ## 🛠️ Tech Stack
 
@@ -49,7 +53,6 @@ npm run build
 ## 📱 Screenshots
 
 <img width="1900" height="855" alt="image" src="https://github.com/user-attachments/assets/156709e3-036f-4526-b07a-bcdb780efa79" />
-
 
 ## 🎯 Project Structure
 
@@ -92,4 +95,3 @@ This project is open source and available under the [MIT License](LICENSE).
 ---
 
 ⭐ **Star this repository if you found it helpful!**
-
