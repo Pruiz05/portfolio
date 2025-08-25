@@ -1,15 +1,9 @@
 ---
-import Badge from "../components/Badge.astro";
+import About from "../components/About.astro";
 import Experience from "../components/Experience.astro";
-import BriefcaseIcon from "../components/icons/Briefcase.astro";
-import CodeIcon from "../components/icons/Code.astro";
-import GithubIcon from "../components/icons/GitHub.astro";
-import LinkedInIcon from "../components/icons/LinkedIn.astro";
-import MailIcon from "../components/icons/Mail.astro";
-import Pill from "../components/Pill.astro";
+import Hero from "../components/Hero.astro";
 import Projects from "../components/Projects.astro";
 import SectionContainer from "../components/SectionContainer.astro";
-import Stack from "../components/Stack.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -18,82 +12,49 @@ import Layout from "../layouts/Layout.astro";
   description="Connect with me to collaborate on exciting projects. Let's discuss your next idea!"
 >
   <main class="px-4">
-    <SectionContainer class="py-44 pb-40">
-      <h1
-        class="text-gray-900 dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
-      >
-        Hey, I'm Pedro Luis
-        <a
-          href="https://www.linkedin.com/in/pedro-luis-ruiz-diaz-7024b9a0"
-          target="_blank"
-          rel="noopener"
-          class="flex justify-center items-center hover:scale-105 transition"
-        >
-          <Badge>Open to work</Badge>
-        </a>
-      </h1>
-
-      <h2 class="text-xl lg:text-2xl text-wrap max-w-[800px]">
-        <span class="text-pink-500"> +7 years of experience.</span> A passionate
-        software engineer and FullStack developer from Dominican Republic.
-      </h2>
-
-      <nav class="flex gap-4 mt-8 flex-wrap">
-        <Pill href="https://www.linkedin.com/in/pedro-luis-ruiz-diaz-7024b9a0">
-          <LinkedInIcon class="size-4 md:size-6" /> LinkedIn
-        </Pill>
-
-        <Pill href="https://github.com/Pruiz05">
-          <GithubIcon class="size-4 md:size-6" /> Github
-        </Pill>
-
-        <Pill href="mailto:pruiz.rd@gmail.com">
-          <MailIcon class="size-4 md:size-6" /> pruiz.rd@gmail.com
-        </Pill>
-      </nav>
+    <!-- Hero Section -->
+    <SectionContainer class="py-44 pb-40" id="me">
+      <Hero />
     </SectionContainer>
 
-    <SectionContainer id="experience">
-      <h2
-        class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black/80 dark:text-white/80"
-      >
-        <BriefcaseIcon class="size-8" />
-        Work Experience
-      </h2>
-      <Experience />
-    </SectionContainer>
+    <div class="space-y-24">
+      <!-- Experience Section -->
+      <SectionContainer id="experience" class="py-16">
+        <Experience />
+      </SectionContainer>
 
-    <SectionContainer id="projects">
-      <h2
-        class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black/80 dark:text-white/80"
-      >
-        <CodeIcon class="size-8" />
-        Projects
-      </h2>
-      <Projects />
-    </SectionContainer>
+      <!-- Projects Section -->
+      <SectionContainer id="projects" class="py-16">
+        <Projects />
+      </SectionContainer>
 
-    <SectionContainer id="stack">
-      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
-        <CodeIcon class="size-8" />
-        Stack
-      </h2>
-      <Stack />
+      <!-- About Section -->
+      <SectionContainer id="about" class="py-16">
+        <About />
+      </SectionContainer>
 
-      <!-- <div class="flex flex-col gap-y-16" data-feat-marquee>
-        <FeatureMarquee client:only />
-      </div> -->
-    </SectionContainer>
-
-    <SectionContainer id="contact">
-      <h2
-        class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black/80 dark:text-white/80"
-      >
-        <CodeIcon class="size-8" />
-        Contact
-      </h2>
-
-      <p>contact here</p>
-    </SectionContainer>
+      <!-- Contact Section -->
+      <!-- <SectionContainer id="contact" class="py-16">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+          <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            Let's Connect
+          </h2>
+          <p
+            class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto"
+          >
+            Ready to collaborate on exciting projects? Let's discuss your next
+            idea!
+          </p>
+          <div class="flex justify-center gap-4 flex-wrap">
+            <Pill href="www.linkedin.com/in/pedro-luis-ruiz">
+              <LinkedInIcon class="size-4 md:size-6" /> LinkedIn
+            </Pill>
+            <Pill href="mailto:pruiz.rd@gmail.com">
+              <MailIcon class="size-4 md:size-6" /> Email
+            </Pill>
+          </div>
+        </div>
+      </SectionContainer> -->
+    </div>
   </main>
 </Layout>

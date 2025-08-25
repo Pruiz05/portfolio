@@ -1,0 +1,46 @@
+---
+import Badge from "./Badge.astro";
+import DownloadIcon from "./icons/Download.astro";
+import MailIcon from "./icons/Mail.astro";
+import Pill from "./Pill.astro";
+---
+
+<div class="max-w-4xl mx-auto px-4">
+  <h1
+    class="text-gray-900 dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
+  >
+    Hey, I'm Pedro Luis
+    <a
+      href="www.linkedin.com/in/pedro-luis-ruiz"
+      target="_blank"
+      rel="noopener"
+      class="flex justify-center items-center hover:scale-105 transition"
+    >
+      <Badge>Open to work</Badge>
+    </a>
+  </h1>
+
+  <h2
+    class="text-xl lg:text-2xl text-wrap max-w-[800px] text-gray-700 dark:text-gray-300"
+  >
+    <span class="text-lime-500"> +8 years of experience.</span> A FullStack developer
+    from Dominican Republic. I specialize in building scalable and modern web applications
+    using NestJS, Next.js, and C#. My focus is on creating clean, efficient solutions
+    that solve real-world problems.
+  </h2>
+
+  <nav class="flex gap-4 mt-8 flex-wrap">
+    <!-- <Pill href="www.linkedin.com/in/pedro-luis-ruiz">
+          <LinkedInIcon class="size-4 md:size-6" /> LinkedIn
+        </Pill> -->
+
+    <!-- download cv -->
+    <Pill href="/cv.pdf" download>
+      <DownloadIcon class="size-4 md:size-6" /> Download CV
+    </Pill>
+
+    <Pill href="mailto:pruiz.rd@gmail.com">
+      <MailIcon class="size-4 md:size-6" /> pruiz.rd@gmail.com
+    </Pill>
+  </nav>
+</div>

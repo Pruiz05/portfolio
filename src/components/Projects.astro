@@ -1,12 +1,13 @@
 ---
+import BootstrapIcon from "./icons/Boostrap.astro";
 import ExpressIcon from "./icons/Express.astro";
 import GraphqlIcon from './icons/GraphQL.astro';
 import MuiIcon from "./icons/MaterialUi.astro";
+import NestJsIcon from "./icons/NestJs.astro";
 import NextJsIcon from "./icons/NextJs.astro";
 import ReactIcon from "./icons/React.astro";
 import TailwindIcon from "./icons/Tailwind.astro";
 import TypeScriptIcon from "./icons/TypeScript.astro";
-
 const TECHNOLOGIES = {
   "Next.js": { icon: NextJsIcon, color: "bg-black text-white" },
   "TypeScript": { icon: TypeScriptIcon, color: "bg-blue-600 text-white" },
@@ -14,17 +15,19 @@ const TECHNOLOGIES = {
   "Tailwind CSS": { icon: TailwindIcon, color: "bg-[#003159] text-white" },
   "MUI": { icon: MuiIcon, color: "bg-[#025f8a] text-white" },
   "Express": { icon: ExpressIcon, color: "bg-green-800 text-white" },
-  "GraphQL": { icon: GraphqlIcon, color: "bg-pink-400 text-white" }
+  "GraphQL": { icon: GraphqlIcon, color: "bg-pink-400 text-white" },
+  "Bootstrap": { icon: BootstrapIcon, color: "bg-purple-500 text-white" },
+  "NestJS": { icon: NestJsIcon, color: "bg-red-400 text-white" }
 };
 
 const PROJECTS = [
   {
     title: "TERCO - A full web application for managing a agreements in a company",
-    description: "A full web application for managing a agreements in a company",
+    description: "A full web application for managing a agreements in a company, notifications, and more...",
     technologies: ["Next.js", "MUI", "Express", "GraphQL"],
     liveDemo: "",
     viewCode: "",
-    image: "/images/shots_so_p1.jpeg"
+    image: "/images/shots_so_p1.webp"
   },
   {
     title: "MedicGeeks - A platform for doctors for managing their patients",
@@ -32,7 +35,7 @@ const PROJECTS = [
     technologies: ["React", "Bootstrap", "NestJS",],
     liveDemo: "https://medicgeekapp.com/",
     viewCode: "",
-    image: "/images/shots_so_p2.jpeg"
+    image: "/images/shots_so_p2.webp"
   }
 ];
 ---
@@ -62,7 +65,7 @@ const PROJECTS = [
           </div>
 
   {PROJECTS.map((project) => (
-    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0 mb-10 ">
       <!-- Project Image (Left Side) -->
       <div class="w-full md:w-1/2">
         <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
