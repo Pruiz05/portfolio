@@ -8,6 +8,7 @@ import NextJsIcon from "./icons/NextJs.astro";
 import ReactIcon from "./icons/React.astro";
 import TailwindIcon from "./icons/Tailwind.astro";
 import TypeScriptIcon from "./icons/TypeScript.astro";
+import Pill from "./Pill.astro";
 const TECHNOLOGIES = {
   "Next.js": { icon: NextJsIcon, color: "bg-black text-white" },
   "TypeScript": { icon: TypeScriptIcon, color: "bg-blue-600 text-white" },
@@ -22,16 +23,16 @@ const TECHNOLOGIES = {
 
 const PROJECTS = [
   {
-    title: "TERCO - A full web application for managing a agreements in a company",
-    description: "A full web application for managing a agreements in a company, notifications, and more...",
+    title: "TERCO - A  web application for managing a agreements",
+    description: "A comprehensive web application for managing company agreements and contracts. Features include notification systems, multi-language support, role-based access control, document lending between departments, and integrated backup management for enhanced security and collaboration.",
     technologies: ["Next.js", "MUI", "Express", "GraphQL"],
     liveDemo: "",
     viewCode: "",
     image: "/images/shots_so_p1.webp"
   },
   {
-    title: "MedicGeeks - A platform for doctors for managing their patients",
-    description: "A platform for doctors for managing their patients, with a calendar for scheduling appointments, notifications, and more",
+    title: "MedicGeeks - A platform for doctors",
+    description: "A medical platform for doctors to manage patients with appointment scheduling, calendar, and notifications. As part of a two-person team, I contributed across the full stack (frontend, backend, DevOps) and implemented multitenancy to transform it into a scalable SaaS platform.",
     technologies: ["React", "Bootstrap", "NestJS",],
     liveDemo: "https://medicgeekapp.com/",
     viewCode: "",
@@ -125,16 +126,11 @@ const PROJECTS = [
             )}
             
             {project.liveDemo && (
-              <a
-                href={project.liveDemo}
-                target="_blank"
-                class="inline-flex items-center gap-2 bg-white text-gray-900 px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors duration-200"
-              >
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                </svg>
-                Preview
-              </a>
+              <Pill href={project.liveDemo} target="_blank">
+              <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"/>
+</svg>
+ Preview</Pill>
             )}
           </footer>
         )}
