@@ -1,6 +1,6 @@
 ---
 import Badge from "./Badge.astro";
-import DownloadIcon from "./icons/Download.astro";
+import LinkedInIcon from "./icons/LinkedIn.astro";
 import MailIcon from "./icons/Mail.astro";
 import Pill from "./Pill.astro";
 ---
@@ -30,14 +30,14 @@ import Pill from "./Pill.astro";
   </h2>
 
   <nav class="flex gap-4 mt-8 flex-wrap">
-    <!-- <Pill href="www.linkedin.com/in/pedro-luis-ruiz">
-          <LinkedInIcon class="size-4 md:size-6" /> LinkedIn
-        </Pill> -->
-
-    <!-- download cv -->
-    <Pill href="/cv.pdf" download>
-      <DownloadIcon class="size-4 md:size-6" /> Download CV
+    <Pill href="https://www.linkedin.com/in/pedro-luis-ruiz/">
+      <LinkedInIcon class="size-4 md:size-6" /> LinkedIn
     </Pill>
+
+    <!-- TODO:download cv -->
+    <!-- <Pill href="/cv.pdf" download>
+      <DownloadIcon class="size-4 md:size-6" /> Download CV
+    </Pill> -->
 
     <Pill href="mailto:pruiz.rd@gmail.com">
       <MailIcon class="size-4 md:size-6" /> pruiz.rd@gmail.com
