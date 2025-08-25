@@ -48,7 +48,8 @@ npm run build
 
 ## 📱 Screenshots
 
-![Portfolio Preview](image.png)
+<img width="1900" height="855" alt="image" src="https://github.com/user-attachments/assets/156709e3-036f-4526-b07a-bcdb780efa79" />
+
 
 ## 🎯 Project Structure
 
@@ -91,3 +92,4 @@ This project is open source and available under the [MIT License](LICENSE).
 ---
 
 ⭐ **Star this repository if you found it helpful!**
+
