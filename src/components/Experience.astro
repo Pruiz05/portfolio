@@ -1,98 +1,151 @@
 ---
 import CompanyIcon from "./icons/Company.astro";
+import SectionHeader from "./SectionHeader.astro";
+import Tag from "./Tag.astro";
 
 const EXPERIENCE = [
   {
     company: "Concentra / Innovix",
     position: "Backend Developer",
     period: "January 2023 - Present",
-    description: "I work within an agile development team following the Scrum framework. My main role is in backend development, where I design and implement solutions using .NET and NestJS with a strong focus on Clean Code practices. I also collaborate with the frontend team whenever features need refinement or updates. Our projects are built around Domain-Driven Design principles, and we apply the CQRS pattern to ensure scalability, maintainability, and clear separation of responsibilities. This approach allows us to tackle complex business requirements with well-structured and reliable solutions.",
-    technologies: [ "C#", "MsSql", "Nest JS", "PostgreSQL", "Docker"],
+    description:
+      "I work within an agile development team following the Scrum framework. My main role is in backend development, where I design and implement solutions using .NET and NestJS with a strong focus on Clean Code practices. I also collaborate with the frontend team whenever features need refinement or updates. Our projects are built around Domain-Driven Design principles, and we apply the CQRS pattern to ensure scalability, maintainability, and clear separation of responsibilities.",
+    technologies: ["C#", "MsSql", "Nest JS", "PostgreSQL", "Docker"],
     latest: true,
   },
   {
     company: "Vegamovil",
     position: "Fullstack Developer",
     period: "December 2020 - January 2023",
-    description: "I first joined the company as part of the Frontend team, building interfaces with React (TypeScript) and Ant Design. After a few months, I transitioned to the Backend, where I worked with Node.js, Express.js, TypeORM, and Oracle. One of my key contributions was introducing GraphQL APIs to replace some REST endpoints, which not only streamlined development but also made our applications faster and more responsive.",
-    technologies: ["React", "TypeScript", "Node.js", "Express.js", "GraphQL", "Oracle", "Python"],
+    description:
+      "I first joined the company as part of the Frontend team, building interfaces with React (TypeScript) and Ant Design. After a few months, I transitioned to the Backend, where I worked with Node.js, Express.js, TypeORM, and Oracle. One of my key contributions was introducing GraphQL APIs to replace some REST endpoints.",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Express.js",
+      "GraphQL",
+      "Oracle",
+      "Python",
+    ],
     latest: false,
   },
   {
     company: "UCATECI",
     position: "Fullstack Developer",
     period: "March 2016 - December 2020",
-    description: "During this period, I wore many hats—ranging from application support and maintenance to the full cycle of analysis, design, development, testing, and implementation. I worked with a wide range of technologies including C#, WinForms, SQL, Oracle, Oracle Forms, JavaScript, jQuery, Bootstrap, CSS, HTML, and more. One of my biggest contributions was leading the development of the university’s two most important portals: the Student Portal and the Teacher Portal. These projects significantly improved design, performance, and overall user experience, making them key tools in the institution’s digital transformation.",
-    technologies: [ "C#",  "SQL", "Oracle", "JavaScript", "Bootstrap"],
+    description:
+      "During this period, I wore many hats—from application support and maintenance to the full cycle of analysis, design, development, testing, and implementation. One of my biggest contributions was leading the development of the university's two most important portals: the Student Portal and the Teacher Portal.",
+    technologies: ["C#", "SQL", "Oracle", "JavaScript", "Bootstrap"],
     latest: false,
   },
 ];
 ---
 
-<!-- <section class="py-16"> -->
-  <div class="max-w-4xl mx-auto px-4">
-    <!-- Experience Tag -->
-    <div class="flex justify-center mb-4">
-      <span class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 text-sm font-medium px-3 py-1 rounded-full border border-gray-200 dark:border-gray-700">
-        Experience
-      </span>
+<div class="max-w-4xl mx-auto px-4">
+  <SectionHeader
+    badge="Experience"
+    title="Professional Journey"
+    subtitle="A timeline of my professional growth and key achievements"
+  />
+
+  <div class="relative" id="experience-timeline">
+    <!-- Línea vertical — centrada en la columna de 24px (left-3 = 12px) -->
+    <div
+      class="pointer-events-none absolute left-3 top-4 bottom-4 w-px -translate-x-1/2 bg-gray-200 dark:bg-gray-800"
+      aria-hidden="true"
+    >
+      <div
+        id="timeline-progress"
+        class="absolute top-0 left-0 w-full bg-brand rounded-full transition-[height] duration-200 ease-out"
+        style="height: 0%"
+      >
+      </div>
     </div>
 
-    <!-- Main Title -->
-    <div class="text-center mb-16">
-      <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-        Professional Journey
-      </h2>
-      <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-        A timeline of my professional growth and key achievements
-      </p>
-    </div>
-
-    <!-- Flowbite Timeline -->
-    <ol class="relative border-s border-lime-200 dark:border-lime-700 ml-1">
-      {EXPERIENCE.map((exp, index) => (
-        <li class="mb-10 ms-6">
-          <div class="absolute w-4 h-4 bg-gray-200 dark:bg-gray-700 rounded-full mt-2 -start-2 border-2 border-white dark:border-gray-900"></div>
-          
-          <!-- Company Header -->
-          <div class="flex items-center gap-3 mb-2">
-            <div class="w-5 h-5 text-gray-600 dark:text-gray-400">
-              <CompanyIcon/>
+    <ol class="space-y-8">
+      {
+        EXPERIENCE.map((exp, index) => (
+          <li
+            class="reveal timeline-item flex gap-x-5 sm:gap-x-6"
+            style={`transition-delay: ${index * 120}ms`}
+          >
+            <!-- Columna del punto — alineada con la línea -->
+            <div class="relative z-[1] flex w-6 shrink-0 justify-center pt-1.5">
+              <div class="timeline-dot size-3.5 rounded-full bg-gray-300 dark:bg-gray-600 ring-[3px] ring-neutral-100 dark:ring-neutral-950 transition-all duration-300" />
             </div>
-            <h3 class="text-xl font-bold text-gray-900 dark:text-white">{exp.company}</h3>
-            {exp.latest && (
-              <span class="bg-lime-100 dark:bg-lime-900/30 text-lime-800 dark:text-lime-300 text-xs font-medium px-2.5 py-0.5 rounded-full border border-lime-200 dark:border-lime-700">
-                Now
-              </span>
-            )}
-          </div>
 
-          <!-- Position and Period -->
-          <div class="flex items-center gap-3 mb-3">
-            <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-200">{exp.position}</h4>
-            <div class="flex items-center gap-2 text-gray-500 dark:text-gray-400">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
-              </svg>
-              <span class="text-sm">{exp.period}</span>
-            </div>
-          </div>
+            <!-- Contenido -->
+            <article class="flex-1 min-w-0 rounded-2xl border border-transparent p-4 -m-4 transition-colors duration-300 hover:border-gray-200 hover:bg-white/40 dark:hover:border-gray-800 dark:hover:bg-white/[0.03]">
+              <div class="flex items-start justify-between gap-3 flex-wrap mb-1">
+                <div class="flex items-center gap-2.5 min-w-0">
+                  <div class="size-5 shrink-0 text-gray-500 dark:text-gray-400">
+                    <CompanyIcon />
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-900 dark:text-white">
+                    {exp.company}
+                  </h3>
+                </div>
+                {exp.latest && (
+                  <span class="shrink-0 bg-lime-100 dark:bg-lime-900/30 text-lime-800 dark:text-lime-300 text-xs font-medium px-2.5 py-0.5 rounded-full border border-lime-200 dark:border-lime-700">
+                    Now
+                  </span>
+                )}
+              </div>
 
-          <!-- Description -->
-          <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
-            {exp.description}
-          </p>
+              <div class="flex flex-wrap items-center gap-x-3 gap-y-1 mb-3 text-sm">
+                <h4 class="font-semibold text-gray-800 dark:text-gray-200">
+                  {exp.position}
+                </h4>
+                <span class="hidden sm:inline text-gray-400 dark:text-gray-600" aria-hidden="true">·</span>
+                <time class="flex items-center gap-1.5 text-gray-500 dark:text-gray-400">
+                  <svg class="size-3.5 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
+                  </svg>
+                  {exp.period}
+                </time>
+              </div>
 
-          <!-- Technology Tags -->
-          <div class="flex flex-wrap gap-2">
-            {exp.technologies.map((tech) => (
-              <span class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm px-3 py-1 rounded-full border border-gray-200 dark:border-gray-700">
-                {tech}
-              </span>
-            ))}
-          </div>
-        </li>
-      ))}
+              <p class="mb-4 text-base leading-relaxed text-gray-600 dark:text-gray-400">
+                {exp.description}
+              </p>
+
+              <div class="flex flex-wrap gap-2">
+                {exp.technologies.map((tech) => (
+                  <Tag>{tech}</Tag>
+                ))}
+              </div>
+            </article>
+          </li>
+        ))
+      }
     </ol>
   </div>
-<!-- </section> -->
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const timeline = document.getElementById("experience-timeline");
+    const progress = document.getElementById("timeline-progress");
+    if (!timeline || !progress) return;
+
+    const updateProgress = () => {
+      const rect = timeline.getBoundingClientRect();
+      const viewportMid = window.innerHeight * 0.55;
+      const total = timeline.offsetHeight;
+      const scrolled = viewportMid - rect.top;
+      const pct = Math.min(100, Math.max(0, (scrolled / total) * 100));
+      progress.style.height = `${pct}%`;
+    };
+
+    updateProgress();
+    window.addEventListener("scroll", updateProgress, { passive: true });
+  });
+</script>
+
+<style>
+  .timeline-item.is-visible .timeline-dot {
+    background-color: #84cc16;
+    box-shadow: 0 0 0 4px rgba(132, 204, 22, 0.2);
+  }
+</style>

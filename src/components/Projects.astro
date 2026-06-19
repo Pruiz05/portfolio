@@ -1,160 +1,193 @@
 ---
-import BootstrapIcon from "./icons/Boostrap.astro";
+import BootstrapIcon from "./icons/Bootstrap.astro";
 import ExpressIcon from "./icons/Express.astro";
-import GraphqlIcon from './icons/GraphQL.astro';
+import GraphqlIcon from "./icons/GraphQL.astro";
 import MuiIcon from "./icons/MaterialUi.astro";
 import NestJsIcon from "./icons/NestJs.astro";
 import NextJsIcon from "./icons/NextJs.astro";
 import ReactIcon from "./icons/React.astro";
+import SectionHeader from "./SectionHeader.astro";
 import TailwindIcon from "./icons/Tailwind.astro";
 import TypeScriptIcon from "./icons/TypeScript.astro";
 import Pill from "./Pill.astro";
+
 const TECHNOLOGIES = {
   "Next.js": { icon: NextJsIcon, color: "bg-black text-white" },
-  "TypeScript": { icon: TypeScriptIcon, color: "bg-blue-600 text-white" },
-  "React": { icon: ReactIcon, color: "bg-blue-500 text-white" },
+  TypeScript: { icon: TypeScriptIcon, color: "bg-blue-600 text-white" },
+  React: { icon: ReactIcon, color: "bg-blue-500 text-white" },
   "Tailwind CSS": { icon: TailwindIcon, color: "bg-[#003159] text-white" },
-  "MUI": { icon: MuiIcon, color: "bg-[#025f8a] text-white" },
-  "Express": { icon: ExpressIcon, color: "bg-green-800 text-white" },
-  "GraphQL": { icon: GraphqlIcon, color: "bg-pink-400 text-white" },
-  "Bootstrap": { icon: BootstrapIcon, color: "bg-purple-500 text-white" },
-  "NestJS": { icon: NestJsIcon, color: "bg-red-400 text-white" }
+  MUI: { icon: MuiIcon, color: "bg-[#025f8a] text-white" },
+  Express: { icon: ExpressIcon, color: "bg-green-800 text-white" },
+  GraphQL: { icon: GraphqlIcon, color: "bg-pink-400 text-white" },
+  Bootstrap: { icon: BootstrapIcon, color: "bg-purple-500 text-white" },
+  NestJS: { icon: NestJsIcon, color: "bg-red-400 text-white" },
+  PostgreSQL: { icon: null, color: "bg-blue-800 text-white" },
 };
+
+const STATUS_STYLES = {
+  live: {
+    label: "Live",
+    class: "bg-brand/90 text-black",
+    title: "Public demo available",
+  },
+  private: {
+    label: "Private",
+    class: "bg-amber-500/90 text-black",
+    title: "Private company project — demo unavailable",
+  },
+  wip: {
+    label: "WIP",
+    class: "bg-gray-600/90 text-white",
+    title: "Work in progress",
+  },
+} as const;
 
 const PROJECTS = [
   {
-    title: "TERCO - A  web application for managing a agreements",
-    description: "A comprehensive web application for managing company agreements and contracts. Features include notification systems, multi-language support, role-based access control, document lending between departments, and integrated backup management for enhanced security and collaboration.",
+    title: "TERCO - A web application for managing agreements",
+    description:
+      "A comprehensive web application for managing company agreements and contracts. Features include notification systems, multi-language support, role-based access control, document lending between departments, and integrated backup management.",
     technologies: ["Next.js", "MUI", "Express", "GraphQL"],
     liveDemo: "",
     viewCode: "",
-    image: "/images/shots_so_p1.webp"
+    image: "/images/shots_so_p1.webp",
+    status: "private" as const,
   },
   {
     title: "ZaludApp - A platform for doctors",
-    description: "A medical platform for doctors to manage patients with appointment scheduling, calendar, and notifications. As part of a two-person team, I contributed across the full stack (frontend, backend, DevOps) and implemented multitenancy to transform it into a scalable SaaS platform.",
+    description:
+      "A medical platform for doctors to manage patients with appointment scheduling, calendar, and notifications. As part of a two-person team, I contributed across the full stack and implemented multitenancy to transform it into a scalable SaaS platform.",
     technologies: ["React", "Bootstrap", "NestJS", "PostgreSQL"],
     liveDemo: "https://test.zaludapp.com/",
     viewCode: "",
-    image: "/images/shots_so_p2.webp"
+    image: "/images/shots_so_p2.webp",
+    status: "live" as const,
   },
   {
     title: "Coming Soon...",
-    description: "A new exciting project is in development. Stay tuned for more details!",
+    description:
+      "A new exciting project is in development. Stay tuned for more details!",
     technologies: [],
     liveDemo: "",
     viewCode: "",
     image: "/images/coming_soon_fake_preview.webp",
-    comingSoon: true
-  }
+    status: "wip" as const,
+    comingSoon: true,
+  },
 ];
 ---
 
+<div class="max-w-4xl mx-auto px-4">
+  <SectionHeader
+    badge="Projects"
+    title="Featured Work"
+    subtitle="Showcasing some of my best projects and technical achievements as a Freelancer"
+  />
 
-<!-- <section class="py-16"> -->
-  <div class="max-w-4xl mx-auto px-4">
-          <!-- Projects Badge -->
-          <div class="flex justify-center mb-4">
-            <span
-              class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 text-sm font-medium px-3 py-1 rounded-full border border-gray-200 dark:border-gray-700"
-            >
-              Projects
-            </span>
-          </div>
+  {
+    PROJECTS.map((project, index) => {
+      const statusInfo = STATUS_STYLES[project.status];
+      return (
+        <article
+          class="reveal flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0 mb-12 last:mb-0"
+          style={`transition-delay: ${index * 100}ms`}
+        >
+          <div class="w-full md:w-1/2">
+            <div class="relative overflow-hidden rounded-xl shadow-xl transition duration-500 ease-in-out md:group-hover:-translate-y-1 md:group-hover:shadow-2xl border border-gray-200 dark:border-gray-800 md:group-hover:border-brand/30">
+              <img
+                src={project.image}
+                alt={`${project.title} preview`}
+                class={`object-cover object-top w-full h-56 sm:h-64 transition duration-500 md:group-hover:scale-105 ${project.comingSoon ? "filter blur-sm brightness-50" : ""}`}
+                loading="lazy"
+              />
 
-          <!-- Main Title -->
-          <div class="text-center mb-16">
-            <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              Featured Work
-            </h2>
-            <p
-              class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
-            >
-              Showcasing some of my best projects and technical achievements as a Freelancer
-            </p>
-          </div>
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                aria-hidden="true"
+              />
 
-  {PROJECTS.map((project) => (
-    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0 mb-10 ">
-      <!-- Project Image (Left Side) -->
-      <div class="w-full md:w-1/2">
-        <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-          <img 
-            src={project.image}
-            alt={`${project.title} preview`}
-            class={`object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105 ${project.comingSoon ? 'filter blur-sm brightness-50' : ''}`}
-            loading="lazy"
-          />
-          {project.comingSoon && (
-            <div class="absolute inset-0 flex items-center justify-center bg-black/30 rounded-xl">
-              <div class="text-center">
-                <div class="text-4xl text-white font-bold mb-2">🚀</div>
-                <div class="text-white font-semibold text-lg">Coming Soon</div>
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-
-      <!-- Project Content (Right Side) -->
-      <div class="w-full md:w-1/2 md:max-w-lg">
-        <!-- Title -->
-        <h3 class={`text-2xl font-bold ${project.comingSoon ? 'text-lime-400 dark:text-lime-500' : 'text-gray-800 dark:text-gray-100'}`}>
-          {project.title}
-        </h3>
-
-        <!-- Technology Tags - Only show if not coming soon -->
-        {!project.comingSoon && (
-          <div class="flex flex-wrap mt-2">
-            <ul class="flex flex-row mb-2 gap-x-2">
-              {project.technologies.map((tech) => {
-                const techInfo = TECHNOLOGIES[tech as keyof typeof TECHNOLOGIES];
-                const IconComponent = techInfo?.icon;
-                
-                return (
-                  <li>
-                    <span class={`flex gap-x-2 rounded-full text-xs ${techInfo?.color || 'bg-gray-600 text-white'} py-1 px-2`}>
-                      {IconComponent && <IconComponent class="size-4" />}
-                      {tech}
-                    </span>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        )}
-
-        <!-- Description -->
-        <div class={`mt-2 ${project.comingSoon ? 'text-gray-400 dark:text-gray-500' : 'text-gray-700 dark:text-gray-400'}`}>
-          {project.description}
-        </div>
-
-        <!-- Action Buttons - Only show if URLs are available and not coming soon -->
-        {!project.comingSoon && (project.viewCode || project.liveDemo) && (
-          <footer class="flex items-end justify-start mt-4 gap-x-4">
-            {project.viewCode && (
-              <a
-                href={project.viewCode}
-                class="inline-flex items-center gap-2 bg-gray-700 text-white px-4 py-2 rounded-lg font-medium hover:bg-gray-600 transition-colors duration-200 border border-gray-600"
+              <span
+                class={`absolute top-3 right-3 text-xs font-semibold px-2.5 py-1 rounded-full backdrop-blur-sm ${statusInfo.class}`}
+                title={statusInfo.title}
               >
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 4.624-5.479 4.869.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-                Code
-              </a>
+                {statusInfo.label}
+              </span>
+
+              {project.comingSoon && (
+                <div class="absolute inset-0 flex items-center justify-center bg-black/30">
+                  <span class="text-white font-semibold text-lg tracking-wide uppercase">
+                    In Development
+                  </span>
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div class="w-full md:w-1/2 md:max-w-lg flex flex-col justify-center">
+            <h3
+              class={`text-2xl font-bold ${project.comingSoon ? "text-brand" : "text-gray-800 dark:text-gray-100"}`}
+            >
+              {project.title}
+            </h3>
+
+            {!project.comingSoon && (
+              <ul class="flex flex-row flex-wrap mt-3 gap-2">
+                {project.technologies.map((tech) => {
+                  const techInfo = TECHNOLOGIES[tech as keyof typeof TECHNOLOGIES];
+                  const IconComponent = techInfo?.icon;
+                  return (
+                    <li>
+                      <span
+                        class={`flex gap-x-2 rounded-full text-xs ${techInfo?.color || "bg-gray-600 text-white"} py-1 px-2`}
+                      >
+                        {IconComponent && <IconComponent class="size-4" />}
+                        {tech}
+                      </span>
+                    </li>
+                  );
+                })}
+              </ul>
             )}
-            
-            {project.liveDemo && (
-              <Pill href={project.liveDemo} target="_blank">
-              <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"/>
-</svg>
- Preview</Pill>
+
+            <p
+              class={`mt-3 ${project.comingSoon ? "text-gray-400 dark:text-gray-500" : "text-gray-700 dark:text-gray-400"}`}
+            >
+              {project.description}
+            </p>
+
+            {project.status === "private" && !project.comingSoon && (
+              <p class="mt-2 text-sm text-gray-500 dark:text-gray-400 italic">
+                Private company project — source and demo not publicly available.
+              </p>
             )}
-          </footer>
-        )}
-      </div>
-    </article>
-  ))}
-  </div>
-<!-- </section> -->
+
+            {!project.comingSoon && (project.viewCode || project.liveDemo) && (
+              <footer class="flex items-center justify-start mt-4 gap-x-4">
+                {project.viewCode && (
+                  <a
+                    href={project.viewCode}
+                    class="inline-flex items-center gap-2 bg-gray-700 text-white px-4 py-2 rounded-lg font-medium hover:bg-gray-600 transition-colors duration-200 border border-gray-600"
+                  >
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 4.624-5.479 4.869.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
+                    Code
+                  </a>
+                )}
+
+                {project.liveDemo && (
+                  <Pill href={project.liveDemo}>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961" />
+                    </svg>
+                    Preview
+                  </Pill>
+                )}
+              </footer>
+            )}
+          </div>
+        </article>
+      );
+    })
+  }
+</div>

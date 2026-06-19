@@ -1,0 +1,212 @@
+---
+import CSharpIcon from "./icons/CSharp.astro";
+import ExpressIcon from "./icons/Express.astro";
+import GraphqlIcon from "./icons/GraphQL.astro";
+import JavaScriptIcon from "./icons/JavaScript.astro";
+import MongoIcon from "./icons/Mongo.astro";
+import MsSqlIcon from "./icons/MsSql.astro";
+import NestJsIcon from "./icons/NestJs.astro";
+import NextJsIcon from "./icons/NextJs.astro";
+import NodeIcon from "./icons/Node.astro";
+import PythonIcon from "./icons/Python.astro";
+import ReactIcon from "./icons/React.astro";
+import TailwindIcon from "./icons/Tailwind.astro";
+import TypeScriptIcon from "./icons/TypeScript.astro";
+import VueIcon from "./icons/Vue.astro";
+
+const SKILLS = [
+  { name: "React", icon: ReactIcon },
+  { name: "Next.js", icon: NextJsIcon },
+  { name: "TypeScript", icon: TypeScriptIcon },
+  { name: "NestJS", icon: NestJsIcon },
+  { name: "Node.js", icon: NodeIcon },
+  { name: "Python", icon: PythonIcon },
+  { name: "C#", icon: CSharpIcon },
+  { name: "GraphQL", icon: GraphqlIcon },
+  { name: "Express", icon: ExpressIcon },
+  { name: "Tailwind CSS", icon: TailwindIcon },
+  { name: "JavaScript", icon: JavaScriptIcon },
+  { name: "MongoDB", icon: MongoIcon },
+  { name: "SQL Server", icon: MsSqlIcon },
+  { name: "Vue", icon: VueIcon },
+];
+
+---
+
+<div class="max-w-6xl mx-auto px-4 py-8">
+  <p class="text-center text-sm font-medium text-gray-500 dark:text-gray-400 mb-6 uppercase tracking-wider">
+    Tech Stack
+  </p>
+
+  <div class="hidden motion-reduce:flex flex-wrap justify-center gap-3">
+    {
+      SKILLS.map((skill) => {
+        const Icon = skill.icon;
+        return (
+          <div class="skill-chip">
+            <div class="skill-chip__icon">
+              <Icon class="size-5" />
+            </div>
+            <span class="skill-chip__label">{skill.name}</span>
+          </div>
+        );
+      })
+    }
+  </div>
+
+  <div class="skills-marquee motion-reduce:hidden" aria-label="Technologies I work with">
+    <div class="skills-marquee__track">
+      {
+        SKILLS.map((skill) => {
+          const Icon = skill.icon;
+          return (
+            <div class="skill-chip">
+              <div class="skill-chip__icon">
+                <Icon class="size-5 shrink-0" />
+              </div>
+              <span class="skill-chip__label">{skill.name}</span>
+            </div>
+          );
+        })
+      }
+      {
+        SKILLS.map((skill) => {
+          const Icon = skill.icon;
+          return (
+            <div class="skill-chip" aria-hidden="true">
+              <div class="skill-chip__icon">
+                <Icon class="size-5 shrink-0" />
+              </div>
+              <span class="skill-chip__label">{skill.name}</span>
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</div>
+
+<style is:global>
+  .skills-marquee {
+    overflow: hidden;
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 8%,
+      black 92%,
+      transparent
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 8%,
+      black 92%,
+      transparent
+    );
+  }
+
+  .skills-marquee__track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+    animation: skills-marquee-scroll 35s linear infinite;
+  }
+
+  .skills-marquee:hover .skills-marquee__track {
+    animation-play-state: paused;
+  }
+
+  /* Light mode chip */
+  .skill-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    margin-inline: 0.625rem;
+    padding: 0.375rem 0.875rem 0.375rem 0.375rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgb(229 231 235);
+    background: rgb(255 255 255);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    flex-shrink: 0;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      background 0.2s ease;
+  }
+
+  .skill-chip__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    background: rgb(249 250 251);
+    flex-shrink: 0;
+  }
+
+  .skill-chip__label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    white-space: nowrap;
+    color: rgb(55 65 81);
+    padding-right: 0.125rem;
+  }
+
+  .skill-chip:hover {
+    border-color: rgb(190 242 100);
+    box-shadow: 0 2px 8px rgba(132, 204, 22, 0.12);
+  }
+
+  /* Dark mode chip — card style, not pill */
+  html.dark .skill-chip {
+    border-color: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: none;
+  }
+
+  html.dark .skill-chip__icon {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  html.dark .skill-chip__label {
+    color: rgb(229 231 235);
+  }
+
+  html.dark .skill-chip:hover {
+    border-color: rgba(132, 204, 22, 0.35);
+    background: rgba(132, 204, 22, 0.06);
+    box-shadow: 0 0 20px rgba(132, 204, 22, 0.08);
+  }
+
+  html.dark .skill-chip:hover .skill-chip__icon {
+    border-color: rgba(132, 204, 22, 0.2);
+    background: rgba(132, 204, 22, 0.08);
+  }
+
+  @keyframes skills-marquee-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .skills-marquee {
+      overflow: visible;
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
+
+    .skills-marquee__track {
+      animation: none;
+    }
+
+    .skill-chip {
+      margin-inline: 0;
+    }
+  }
+</style>

@@ -1,8 +1,10 @@
 ---
 import About from "../components/About.astro";
+import Contact from "../components/Contact.astro";
 import Experience from "../components/Experience.astro";
 import Hero from "../components/Hero.astro";
 import Projects from "../components/Projects.astro";
+import Skills from "../components/Skills.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import Layout from "../layouts/Layout.astro";
 ---
@@ -12,49 +14,30 @@ import Layout from "../layouts/Layout.astro";
   description="Connect with me to collaborate on exciting projects. Let's discuss your next idea!"
 >
   <main class="px-4">
-    <!-- Hero Section -->
-    <SectionContainer class="py-44 pb-40" id="me">
+    <SectionContainer class="pt-36 md:pt-44 pb-12 md:pb-16" id="me">
       <Hero />
     </SectionContainer>
 
-    <div class="space-y-24">
-      <!-- Experience Section -->
+    <div class="mt-6 md:mt-10 mb-2">
+      <Skills />
+    </div>
+
+  <div class="space-y-24 mt-8 md:mt-12">
       <SectionContainer id="experience" class="py-16">
         <Experience />
       </SectionContainer>
 
-      <!-- Projects Section -->
       <SectionContainer id="projects" class="py-16">
         <Projects />
       </SectionContainer>
 
-      <!-- About Section -->
       <SectionContainer id="about" class="py-16">
         <About />
       </SectionContainer>
 
-      <!-- Contact Section -->
-      <!-- <SectionContainer id="contact" class="py-16">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-          <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Let's Connect
-          </h2>
-          <p
-            class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto"
-          >
-            Ready to collaborate on exciting projects? Let's discuss your next
-            idea!
-          </p>
-          <div class="flex justify-center gap-4 flex-wrap">
-            <Pill href="www.linkedin.com/in/pedro-luis-ruiz">
-              <LinkedInIcon class="size-4 md:size-6" /> LinkedIn
-            </Pill>
-            <Pill href="mailto:pruiz.rd@gmail.com">
-              <MailIcon class="size-4 md:size-6" /> Email
-            </Pill>
-          </div>
-        </div>
-      </SectionContainer> -->
+      <SectionContainer id="contact" class="py-16 pb-32 md:pb-40">
+        <Contact />
+      </SectionContainer>
     </div>
   </main>
 </Layout>

@@ -1,0 +1,44 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="404 — Page not found | Pruiz"
+  description="The page you're looking for doesn't exist."
+>
+  <main class="flex flex-1 items-center justify-center px-4 py-32">
+    <div class="max-w-lg text-center reveal is-visible">
+      <div class="flex justify-center mb-8">
+        <div
+          class="w-24 h-24 rounded-full overflow-hidden ring-4 ring-brand/30 ring-offset-2 ring-offset-neutral-100 dark:ring-offset-neutral-950"
+        >
+          <img
+            src="/images/pruiz_test.webp"
+            alt="Pruiz mascot"
+            class="w-full h-full object-cover"
+            width="96"
+            height="96"
+          />
+        </div>
+      </div>
+
+      <p class="text-brand font-semibold text-sm uppercase tracking-wider mb-2">
+        404
+      </p>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+        Lost in the codebase?
+      </h1>
+      <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+        This page doesn't exist. Maybe it was refactored away, or the route never
+        got merged.
+      </p>
+
+      <a
+        href="/"
+        class="inline-flex justify-center items-center gap-x-2 bg-white/5 border border-gray-400 dark:border-white/10 rounded-full py-2 px-4 text-base dark:text-white transition hover:scale-110 hover:bg-white/10"
+      >
+        Back to home
+      </a>
+    </div>
+  </main>
+</Layout>
